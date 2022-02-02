@@ -9,15 +9,6 @@ type PathError struct {
 	path string
 }
 
-func divide(a, b int) (int, error) {
-	if b == 0 {
-		return 0, errors.New("cannot divide by zero")
-	} else {
-		return (a / b), nil
-	}
-
-}
-
 func (e *PathError) Error() string {
 
 	return fmt.Sprintf("Error occurred while reading path %v", e.path)
@@ -26,6 +17,15 @@ func (e *PathError) Error() string {
 func throwError() error {
 
 	return &PathError{path: "c:\\dektop\\mujahid"}
+}
+
+func divide(a, b int) (int, error) {
+	if b == 0 {
+		return 0, errors.New("cannot divide by zero")
+	} else {
+		return (a / b), nil
+	}
+
 }
 
 func main() {
